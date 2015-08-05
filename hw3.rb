@@ -1,19 +1,16 @@
 class Scrabble
   def initialize
     def score(word)
-
-      #run code that processes the word entered and uses the lookup hash as a reference
-
-      entered = word.split(//)
-
-      # I need to split each word entered into individual letters, 
-      #then reference each to the hash provided,
-      #then have it output the combination (sum) of the numbers- a score. 
-
-      #entered.each do |this| 
-        #some code
-        p entered
-     # end
+      entered = word.upcase.split(//)
+      points = {"A"=>1, "B"=>3, "C"=>3, "D"=>2,"E"=>1, "F"=>4, "G"=>2, "H"=>4,
+                "I"=>1, "J"=>8, "K"=>5, "L"=>1, "M"=>3, "N"=>1, "O"=>1, "P"=>3,
+                "Q"=>10, "R"=>1, "S"=>1, "T"=>1,"U"=>1, "V"=>4, "W"=>4, "X"=>8,
+                "Y"=>4, "Z"=>10}
+      sum = 0
+      entered.each do |this| 
+        sum += points[this]
+      end
+        puts "The score for '#{word}' is #{sum}."
     end
   end
 end
